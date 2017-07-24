@@ -22,6 +22,8 @@ projects.ext {
         constLayout = "1.0.2"
         junit = "4.12"
         glideVer = "4.0.0-RC1"
+        retroVer = "2.3.0"
+        okhttpVer = "3.8.1"
 }
 
 android {
@@ -65,7 +67,10 @@ dependencies {
     //Butterknife
     compile "com.jakewharton:butterknife:$projects.butterknifeVer"
     annotationProcessor "com.jakewharton:butterknife-compiler:$projects.butterknifeVer"
-
+    //retrogfit okhttp interception
+    compile "com.squareup.retrofit2:retrofit:$projects.retroVer"
+    compile "com.squareup.okhttp3:okhttp:$projects.okhttpVer"
+    
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
