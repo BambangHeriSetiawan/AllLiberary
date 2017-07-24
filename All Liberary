@@ -24,6 +24,7 @@ projects.ext {
         glideVer = "4.0.0-RC1"
         retroVer = "2.3.0"
         okhttpVer = "3.8.1"
+        gsonVer = "2.4"
 }
 
 android {
@@ -67,11 +68,16 @@ dependencies {
     //Butterknife
     compile "com.jakewharton:butterknife:$projects.butterknifeVer"
     annotationProcessor "com.jakewharton:butterknife-compiler:$projects.butterknifeVer"
+    
     //retrogfit okhttp interception
     compile "com.squareup.retrofit2:retrofit:$projects.retroVer"
     compile "com.squareup.okhttp3:okhttp:$projects.okhttpVer"
-    
+    compile "com.squareup.retrofit:converter-gson:$projects.retroVer"
+
+    //GSON
+    compile "com.google.code.gson:gson:$projects.gsonVer"
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
