@@ -1,12 +1,34 @@
 Dagger Liberary
 #grade/app
-compile 'com.google.dagger:dagger:2.11'
-compile 'com.google.dagger:dagger-android:2.11'
-annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
-annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
-#gradle/build
-android {
-    configurations.all {
-        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    buildscript {
+    repositories {
+        mavenCentral()
     }
-}
+    dependencies {
+        ...
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+    }
+
+    //plugin
+    apply plugin: 'com.android.application'
+    apply plugin: 'com.neenbedankt.android-apt'
+
+    ///cimpiler
+    compile 'com.google.dagger:dagger:2.11'
+    compile 'com.google.dagger:dagger-android:2.11'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    provided 'javax.annotation:jsr250-api:1.0'
+
+#gradle/build
+    android {
+        configurations.all {
+            resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+        }
+    }
+
+    dependencies {
+    .....
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+     }
